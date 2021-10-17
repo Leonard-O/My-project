@@ -49,7 +49,7 @@ function Header() {
 
 					<div className="relative hidden  md:inline-flex cursor-pointer hover:scale-125 transition-all duration-150 ease-out">
 						<PaperAirplaneIcon className="h-5 w-5 hidden  md:inline-flex cursor-pointer hover:scale-125 transition-all duration-150 ease-out rotate-45" />
-						<div className="absolute -top-1 -right-2 text-xs w-4 h-4 bg-red-500 rounded-full flex items-center justify-center animate-pulse text-white">
+						<div className="absolute -top-1 -right-2 text-xs w-4 h-4 bg-blue-500 rounded-full flex items-center justify-center animate-pulse text-white">
 							3
 						</div>
 					</div>
@@ -61,7 +61,7 @@ function Header() {
 					<img
 						src="https://avatars.githubusercontent.com/u/77775592?v=4"
 						alt="profile pic"
-						className="h-10 rounded-full cursor-pointer border-2"
+						className="h-10 rounded-full cursor-pointer p-[1.5px] border-blue-500 border-2"
 					/>
 				</div>
 			</div>
