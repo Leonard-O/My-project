@@ -13,7 +13,7 @@ import {
 
 function Header() {
 	return (
-		<div>
+		<div className="shadow-lg border-b bg-white sticky top-0 z-50">
 			<div className="items-center flex justify-between  max-w-6xl mx-5 lg:mx-auto">
 				{/* Left */}
 				<div className="hidden lg:inline-grid cursor-pointer">
@@ -44,10 +44,25 @@ function Header() {
 
 				{/* Right */}
 				<div className="flex items-center justify-end space-x-4">
-					<HomeIcon className="navBar" />
-					<Button className="navBar" />
-					<PlusCircleIcon className="navBar" />
+					<HomeIcon className="h-5 w-5 hidden  md:inline-flex cursor-pointer hover:scale-125 transition-all duration-150 ease-out" />
 					<MenuIcon className="h-6 md:hidden cursor-pointer" />
+
+					<div className="relative hidden  md:inline-flex cursor-pointer hover:scale-125 transition-all duration-150 ease-out">
+						<PaperAirplaneIcon className="h-5 w-5 hidden  md:inline-flex cursor-pointer hover:scale-125 transition-all duration-150 ease-out rotate-45" />
+						<div className="absolute -top-1 -right-2 text-xs w-4 h-4 bg-red-500 rounded-full flex items-center justify-center animate-pulse text-white">
+							3
+						</div>
+					</div>
+
+					<PlusCircleIcon className="h-5 w-5 hidden  md:inline-flex cursor-pointer hover:scale-125 transition-all duration-150 ease-out" />
+					<UserGroupIcon className="h-5 w-5 hidden  md:inline-flex cursor-pointer hover:scale-125 transition-all duration-150 ease-out" />
+					<HeartIcon className="h-5 w-5 hidden  md:inline-flex cursor-pointer hover:scale-125 transition-all duration-150 ease-out" />
+					<Button className="" />
+					<img
+						src="https://avatars.githubusercontent.com/u/77775592?v=4"
+						alt="profile pic"
+						className="h-10 rounded-full cursor-pointer border-2"
+					/>
 				</div>
 			</div>
 		</div>
