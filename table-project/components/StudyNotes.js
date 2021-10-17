@@ -1,9 +1,5 @@
 function StudyNotes() {
-	return (
-		<div>
-			<h1>THIS IS THE STUDY NOTES SECTION</h1>
-		</div>
-	);
+	return <div></div>;
 }
 
 export default StudyNotes;
