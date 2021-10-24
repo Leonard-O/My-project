@@ -1,64 +1,111 @@
 import 'antd/dist/antd.css';
-import { Table } from 'antd';
+import { Button, Table, Modal, Input } from 'antd';
 import { useState } from 'react';
 import { EditOutlined, DeleteOutlined } from '@ant-design/icons';
 
 function Table2() {
+	const [isEditing, setIsEditing] = useState(false);
+	const [editingDay, setEditingDay] = useState(null);
 	const [dataSource, setDataSource] = useState([
 		{
-			id: 1,
-			name: 'Zannoh',
-			email: 'zanuchol@gmail.com',
-			address: 'Lelmokwo Nyagacho Kericho',
+			time: '8:00',
+			subject1: 'Maths',
+			subject2: 'English',
+			subject3: 'Physics',
+			subject4: 'Geography',
+			subject5: 'History',
+			subject6: 'Project',
+			subject7: 'Chill',
 		},
 		{
-			id: 2,
-			name: 'Notty',
-			email: 'notty@gmail.com',
-			address: 'plot10 Kericho town ',
+			time: '9:00',
+			subject1: 'Maths',
+			subject2: 'English',
+			subject3: 'Physics',
+			subject4: 'Geography',
+			subject5: 'History',
+			subject6: 'Project',
+			subject7: 'Chill',
 		},
 		{
-			id: 3,
-			name: 'Jayden',
-			email: 'jayden@gmail.com',
-			address: 'SiloconValley PaloAlto Califonia',
+			time: '9:30',
+			subject1: 'Maths',
+			subject2: 'English',
+			subject3: 'Physics',
+			subject4: 'Geography',
+			subject5: 'History',
+			subject6: 'Project',
+			subject7: 'Chill',
 		},
 		{
-			id: 4,
-			name: 'Joy',
-			email: 'joy@gmail.com',
-			address: 'San Francisco Califonia',
+			time: '10:00',
+			subject1: 'Maths',
+			subject2: 'English',
+			subject3: 'Physics',
+			subject4: 'Geography',
+			subject5: 'History',
+			subject6: 'Project',
+			subject7: 'Chill',
 		},
 	]);
 	const columns = [
 		{
 			key: '1',
-			title: 'ID',
-			dataIndex: 'id',
+			title: 'Time',
+			dataIndex: 'time',
 		},
 		{
 			key: '2',
-			title: 'NAME',
-			dataIndex: 'name',
+			title: 'Monday',
+			dataIndex: 'subject1',
 		},
 		{
 			key: '3',
-			title: 'Email',
-			dataIndex: 'email',
+			title: 'Tuesday',
+			dataIndex: 'subject2',
 		},
 		{
 			key: '4',
-			title: 'Address',
-			dataIndex: 'address',
+			title: 'Wednesday',
+			dataIndex: 'subject3',
 		},
 		{
 			key: '5',
+			title: 'Thursday',
+			dataIndex: 'subject4',
+		},
+		{
+			key: '6',
+			title: 'Friday',
+			dataIndex: 'subject5',
+		},
+		{
+			key: '7',
+			title: 'Saturday',
+			dataIndex: 'subject6',
+		},
+		{
+			key: '8',
+			title: 'Sunday',
+			dataIndex: 'subject7',
+		},
+		{
+			key: '9',
 			title: 'Actions',
 			render: (record) => {
 				return (
 					<>
-						<EditOutlined />
-						<DeleteOutlined style={{ color: 'red', marginLeft: 12 }} />
+						<EditOutlined
+							onClick={() => {
+								onEditDay(record);
+							}}
+						/>
+						<DeleteOutlined
+							onClick={() => {
+								onDeleteDay(record);
+							}}
+							style={{ color: 'red', marginLeft: 12 }}
+						/>
 					</>
 				);
 			},
@@ -68,20 +115,63 @@ function Table2() {
 	const onAddDay = () => {
 		const randomNumber = parseInt(Math.random() * 1000);
 		const newDay = {
-			id: randomNumber,
-			name: 'name ' + randomNumber,
-			email: randomNumber + ' email',
-			address: 'address' + randomNumber,
+			time: randomNumber,
+			subject1: 'subject1',
+			subject2: 'subject2',
+			subject3: 'subject3',
+			subject4: 'subject4',
+			subject5: 'subject5',
+			subject6: 'subject6',
+			subject7: 'subject7',
 		};
 
 		setDataSource((pre) => {
 			return [...pre, newDay];
 		});
 	};
+
+	const onDeleteDay = (record) => {
+		Modal.confirm({
+			title: 'Are you sure you want to DELETE this entry?',
+			okText: 'Yes',
+			okType: 'danger',
+			onOk: () => {
+				setDataSource((pre) => {
+					return pre.filter((day) => day.time !== record.time);
+				});
+			},
+		});
+	};
+
+	const onEditDay = (record) => {
+		setIsEditing(true);
+		setEditingDay({ ...record });
+	};
+
 	return (
 		<div className="app-header">
-			<button onClick={onAddDay}>Add New Day</button>
+			<Button onClick={onAddDay}>Add New Day</Button>
 			<Table columns={columns} dataSource={dataSource}></Table>
+			<Modal
+				title="Edit Subject"
+				visible={isEditing}
+				okText="Save"
+				onCancel={() => {
+					setIsEditing(false);
+				}}
+				onOk={() => {
+					setIsEditing(false);
+				}}
+			>
+				<Input placeholder="Time" value={onEditDay?.title} />
+				<Input placeholder="Subject1" value={onEditDay?.title} />
+				<Input placeholder="Subject2" value={onEditDay?.title} />
+				<Input placeholder="Subject3" value={onEditDay?.title} />
+				<Input placeholder="Subject4" value={onEditDay?.title} />
+				<Input placeholder="Subject5" value={onEditDay?.title} />
+				<Input placeholder="Subject6" value={onEditDay?.title} />
+				<Input placeholder="Subject7" value={onEditDay?.title} />
+			</Modal>
 		</div>
 	);
 }
