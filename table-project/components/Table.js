@@ -1,9 +1,4 @@
-import React, { useState } from 'react';
-import data from '../mock-data.json';
-
 function Table() {
-	const [contacts, setContacts] = useState(data);
-
 	return (
 		<div className="app-container flex col-auto gap-10 mt-5 ">
 			<table className="border-collapse w-100%">
@@ -36,34 +31,32 @@ function Table() {
 					</tr>
 				</thead>
 				<tbody>
-					{contacts.map((contact) => (
-						<tr>
-							<td className="border [1px solid #ffffff] align left-0 p-2 bg-red-200">
-								{contact.id}
-							</td>
-							<td className="border [1px solid #ffffff] align left-0 p-2 bg-red-200">
-								{contact.subject1}
-							</td>
-							<td className="border [1px solid #ffffff] align left-0 p-2 bg-red-200">
-								{contact.subject2}
-							</td>
-							<td className="border [1px solid #ffffff] align left-0 p-2 bg-red-200">
-								{contact.subject3}
-							</td>
-							<td className="border [1px solid #ffffff] align left-0 p-2 bg-red-200">
-								{contact.subject4}
-							</td>
-							<td className="border [1px solid #ffffff] align left-0 p-2 bg-red-200">
-								{contact.subject5}
-							</td>
-							<td className="border [1px solid #ffffff] align left-0 p-2 bg-red-200">
-								{contact.subject6}
-							</td>
-							<td className="border [1px solid #ffffff] align left-0 p-2 bg-red-200">
-								{contact.subject7}
-							</td>
-						</tr>
-					))}
+					<tr>
+						<td className="border [1px solid #ffffff] align left-0 p-2 bg-red-200">
+							{'7:45'}
+						</td>
+						<td className="border [1px solid #ffffff] align left-0 p-2 bg-red-200">
+							{'Swahili'}
+						</td>
+						<td className="border [1px solid #ffffff] align left-0 p-2 bg-red-200">
+							{'Geography'}
+						</td>
+						<td className="border [1px solid #ffffff] align left-0 p-2 bg-red-200">
+							{'English'}
+						</td>
+						<td className="border [1px solid #ffffff] align left-0 p-2 bg-red-200">
+							{'Science'}
+						</td>
+						<td className="border [1px solid #ffffff] align left-0 p-2 bg-red-200">
+							{'History'}
+						</td>
+						<td className="border [1px solid #ffffff] align left-0 p-2 bg-red-200">
+							{'Math'}
+						</td>
+						<td className="border [1px solid #ffffff] align left-0 p-2 bg-red-200">
+							{'Project'}
+						</td>
+					</tr>
 				</tbody>
 			</table>
 		</div>

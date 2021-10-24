@@ -1,5 +1,6 @@
 import Stories from './Stories';
 import Table from './Table';
+import Table2 from './Table2';
 
 function Main() {
 	return (
@@ -8,7 +9,9 @@ function Main() {
 				{/* stories */}
 				<Stories />
 
-				<Table />
+				{/* <Table /> */}
+
+				<Table2 />
 			</section>
 
 			<section>

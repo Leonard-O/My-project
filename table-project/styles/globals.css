@@ -6,3 +6,12 @@
         @apply hidden h-6 md: inline-flex cursor-pointer hover: scale-125 transition-all duration-150 ease-out;
     }
 } */
+
+
+/* .th {
+    @apply border [2px solid #ffffff] align left-0 p-3 bg-blue-500;
+}
+
+.td {
+    @apply border [1px solid #ffffff] align left-0 p-2 bg-red-200;
+} */
